@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Método de Melhoria Profissional em Operações na Construção Civil — Silvanio Gois</title>
+  <style>
+    :root {
+      --primary: #27628d;
+      --primary-dark: #1d4f72;
+      --white: #ffffff;
+      --muted: #6b7280;
+      --radius: 14px;
+      --shadow: 0 6px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: #1f2937;
+      background: #f4f7fa;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      display: flex;
+    }
+
+    /* ===== MENU LATERAL FIXO - Largura reduzida para 170px (mais compacto) ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background: var(--primary);
+      color: #fff;
+      width: 170px; 
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      box-shadow: 4px 0 16px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    nav h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      color: #e2e8f0;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      width: 100%; 
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--primary-dark);
+      transform: translateX(4px);
+    }
+
+    /* Estilo específico para o link "Topo" */
+    nav a.to-top {
+      /* Adiciona um espaçamento acima para separá-lo visualmente */
+      margin-top: 20px; 
+      /* Centraliza o texto no link */
+      text-align: center;
+      /* Deixa a cor um pouco mais clara ou diferente para destaque */
+      background: var(--primary-dark); 
+    }
+
+    nav a.to-top:hover {
+      background: var(--primary);
+      transform: none; /* Remove a animação de deslocamento */
+      opacity: 0.8;
+    }
+
+    /* ===== CONTEÚDO - Ajustado para a nova largura do menu (170px) ===== */
+    .content {
+      margin-left: 170px; 
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .header {
+      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      padding: 20px 28px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .photo-wrap {
+      background: var(--white);
+      padding: 8px;
+      border-radius: 999px;
+      width: 96px;
+      height: 96px;
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.12);
+    }
+
+    .photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      object-fit: cover;
+    }
+
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .header-info .name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .header-info .roles {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .contacts {
+      font-size: 13px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .contacts a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 28px;
+      flex: 1;
+    }
+
+    h1, h2 {
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 12px 0 24px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 22px;
+      cursor: pointer;
+    }
+
+    h2:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+      transform: translateX(4px);
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 15px;
+      text-align: justify;
+    }
+
+    ul {
+      margin: 10px 0 16px 22px;
+      font-size: 15px;
+    }
+
+    li { margin-bottom: 6px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #dbe3ea;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #eaf1f6;
+      color: #1e3a56;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-style: italic;
+      text-align: right;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      background: #fbfdff;
+      border-top: 1px solid rgba(39, 98, 141, 0.1);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ===== RESPONSIVIDADE (MOBILE) - Mantidas as melhorias anteriores ===== */
+    @media (max-width: 900px) {
+      nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 16px; 
+      }
+      
+      nav h3 {
+        width: 100%; 
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      
+      nav a {
+        width: auto; 
+        margin: 4px 6px; 
+        white-space: nowrap; 
+        transform: none !important; 
+      }
+
+      nav a.to-top {
+        margin-top: 10px; /* Reduz a margem superior no mobile */
+        width: 100%; /* Ocupa a largura total para fácil clique */
+        order: 99; /* Garante que ele vá para o final da lista no flexbox */
+        text-align: center;
+      }
+      
+      nav a:hover, nav a.active {
+        transform: none; 
+      }
+      
+      .content {
+        margin-left: 0;
+      }
+      
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-info .name, .header-info .roles {
+        text-align: center;
+      }
+      .contacts {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h3>Sumário</h3>
+    <a href="#intro">1. Introdução</a>
+    <a href="#justificativa">2. Justificativa</a>
+    <a href="#objetivos">3. Objetivos</a>
+    <a href="#metas">4. Metas</a>
+    <a href="#plano">5. Plano de Ação</a>
+    <a href="#indicadores">6. Indicadores</a>
+    <a href="#conclusao">7. Conclusão</a>
+    
+    <a href="#" class="to-top">Retornar ao Topo ↑</a>
+  </nav>
+
+  <div class="content">
+    <header class="header">
+      <div class="photo-wrap">
+        <img src="SG_Executivo-removebg-preview.png" alt="Foto de Silvanio Gois" class="photo">
+      </div>
+      <div class="header-info">
+        <div class="name">Silvanio Gois — Técnico em Administração e Edificações</div>
+        <div class="roles">Graduando em Processos Gerenciais</div>
+        <div class="contacts">
+          <span>sg@silvaniogois.com.br</span> |
+          <a href="https://www.silvaniogois.com.br" target="_blank">www.silvaniogois.com.br</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1>Método de Melhoria Profissional em Operações na Construção Civil</h1>
+
+      <h2 id="intro">1. Introdução</h2>
+      <p>O presente método tem como objetivo implantar ações práticas de melhoria na gestão operacional de obras, visando à redução de custos, eliminação de desperdícios e aumento da eficiência produtiva. O foco está em práticas de gestão de pessoas, equipamentos, materiais e processos aplicadas diretamente no canteiro de obras.</p>
+
+      <h2 id="justificativa">2. Justificativa</h2>
+      <p>A construção civil enfrenta desafios relacionados à produtividade, custos logísticos, desperdícios de materiais e retrabalhos. A ausência de padronização e controle contínuo impacta diretamente o resultado financeiro das obras. Assim, este método justifica-se pela necessidade de adotar práticas organizacionais e operacionais que otimizem os recursos disponíveis e assegurem maior previsibilidade dos resultados.</p>
+
+      <h2 id="objetivos">3. Objetivos</h2>
+      <p><strong>Objetivo Geral:</strong> Reduzir custos operacionais e melhorar a produtividade das equipes de execução através da otimização de mão de obra, materiais e equipamentos.</p>
+      <p><strong>Objetivos Específicos:</strong></p>
+      <ul>
+        <li>Diminuir custos com transporte e deslocamento de equipes.</li>
+        <li>Reduzir desperdícios de materiais e tempo improdutivo.</li>
+        <li>Melhorar o uso e controle de ferramentas e equipamentos.</li>
+        <li>Padronizar rotinas e ampliar o comprometimento das equipes.</li>
+      </ul>
+
+      <h2 id="metas">4. Metas</h2>
+      <ul>
+        <li>Reduzir custos operacionais em 10% no prazo de seis meses.</li>
+        <li>Aumentar a produtividade das equipes em 15%.</li>
+        <li>Diminuir retrabalhos em 20%.</li>
+        <li>Reduzir tempo ocioso em 25% através de melhor planejamento e uso de recursos.</li>
+      </ul>
+
+      <h2 id="plano">5. Plano de Ação</h2>
+      <ul>
+        <li><strong>Gestão de Mão de Obra:</strong> Contratar trabalhadores locais, implantar horários alternados de almoço, realizar treinamentos de produtividade e segurança, e criar um programa de incentivo ao desempenho.</li>
+        <li><strong>Gestão de Ferramentas e Equipamentos:</strong> Realizar inspeções semanais, substituir itens danificados ou ociosos, criar controle de uso e compartilhar equipamentos entre frentes próximas.</li>
+        <li><strong>Gestão de Materiais:</strong> Planejar entregas conforme o cronograma, organizar o almoxarifado (5S), reaproveitar materiais e negociar com fornecedores locais.</li>
+        <li><strong>Planejamento e Organização:</strong> Implantar reuniões diárias curtas (Toolbox Meeting), criar cronogramas visuais, monitorar indicadores e aplicar a melhoria contínua (Kaizen).</li>
+        <li><strong>Sustentabilidade:</strong> Reduzir consumo de água e energia, segregar resíduos e reutilizar materiais quando possível.</li>
+      </ul>
+
+      <h2 id="indicadores">6. Indicadores de Desempenho (KPIs)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th>Meta</th>
+            <th>Método de Avaliação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Redução de custos operacionais</td>
+            <td>-10% em 6 meses</td>
+            <td>Relatórios financeiros mensais</td>
+          </tr>
+          <tr>
+            <td>Aumento da produtividade da equipe</td>
+            <td>+15%</td>
+            <td>Medição de produção diária</td>
+          </tr>
+          <tr>
+            <td>Redução de retrabalhos</td>
+            <td>-20%</td>
+            <td>Registros de inspeção e qualidade</td>
+          </tr>
+          <tr>
+            <td>Diminuição de tempo ocioso</td>
+            <td>-25%</td>
+            <td>Controle de horas produtivas</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="conclusao">7. Conclusão</h2>
+      <p>A aplicação deste método proporcionará ganhos reais na eficiência operacional, redução de desperdícios e fortalecimento da cultura de produtividade. As medidas propostas têm baixo custo de implantação e alto potencial de retorno, impactando positivamente a rentabilidade, a imagem da empresa e a satisfação das equipes envolvidas.</p>
+      <p>Este método é adaptável a diferentes tipos de obras e pode ser expandido conforme o crescimento da empresa, servindo como base para um modelo de gestão de operações sustentável e de alto desempenho.</p>
+
+      <div class="signature">
+        Método desenvolvido por <strong>Silvanio Gois</strong>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>© 2025 Silvanio Gois — Todos os direitos reservados</div>
+      <div><a href="https://www.silvaniogois.com.br" target="_blank">Retornar ao site</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // Destaque automático no menu conforme rolagem
+    const sections = document.querySelectorAll("main h2[id]");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        // Ajustado o offset para telas menores
+        const offset = window.innerWidth > 900 ? 140 : 100; 
+        const sectionTop = section.offsetTop - offset;
+        if (scrollY >= sectionTop) current = section.getAttribute("id");
+      });
+
+      navLinks.forEach((link) => {
+        // Exclui o link "to-top" da lógica de destaque de rolagem
+        if (link.classList.contains('to-top')) return; 
+
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current)
+          link.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
