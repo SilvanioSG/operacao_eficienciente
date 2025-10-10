@@ -1,426 +1,486 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Método de Melhoria Profissional em Operações na Construção Civil — Silvanio Gois</title>
-  <style>
-    :root {
-      --primary: #27628d;
-      --primary-dark: #1d4f72;
-      --white: #ffffff;
-      --muted: #6b7280;
-      --radius: 14px;
-      --shadow: 0 6px 22px rgba(15, 23, 42, 0.12);
-    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Método de Melhoria Profissional em Operações na Construção Civil — Silvanio Gois</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Cores Primárias */
+            --primary: #2C7DA0; /* Azul um pouco mais vibrante */
+            --primary-dark: #1E6091; /* Azul escuro complementar */
+            --primary-light: #5AA9E6; /* Azul claro para detalhes */
+            
+            /* Nova Cor de Destaque/Alerta (Vermelho) */
+            --accent-color: #E74C3C; 
+            
+            /* Cores Neutras */
+            --white: #ffffff;
+            --light-gray: #F5F7FA; /* Fundo mais suave */
+            --mid-gray: #E0E7EB; /* Bordas e divisores */
+            --dark-gray: #4B5563; /* Texto secundário */
+            --text-color: #2D3748; /* Cor principal do texto */
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+            /* Sombras */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
 
-    body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      color: #1f2937;
-      background: #f4f7fa;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      display: flex;
-    }
+            /* Bordas */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
 
-    /* ===== MENU LATERAL FIXO - Largura reduzida para 170px (mais compacto) ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      background: var(--primary);
-      color: #fff;
-      width: 170px; 
-      padding: 24px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      overflow-y: auto;
-      box-shadow: 4px 0 16px rgba(0,0,0,0.1);
-      z-index: 100;
-    }
+        /* RESET BÁSICO */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    nav h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      color: #e2e8f0;
-      letter-spacing: 0.5px;
-    }
+        /* ESTILOS GERAIS */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            background: var(--light-gray);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 10px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      font-size: 14px;
-      width: 100%; 
-    }
+        /* CONTAINER PRINCIPAL */
+        .content {
+            width: 100%;
+            max-width: 900px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
 
-    nav a:hover, nav a.active {
-      background: var(--primary-dark);
-      transform: translateX(4px);
-    }
+        /* CABEÇALHO */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 30px 25px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: var(--radius-md);
+            border-bottom-right-radius: var(--radius-md);
+        }
 
-    /* Estilo específico para o link "Topo" */
-    nav a.to-top {
-      /* Adiciona um espaçamento acima para separá-lo visualmente */
-      margin-top: 20px; 
-      /* Centraliza o texto no link */
-      text-align: center;
-      /* Deixa a cor um pouco mais clara ou diferente para destaque */
-      background: var(--primary-dark); 
-    }
+        /* Efeito de fundo no cabeçalho */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0.3;
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
 
-    nav a.to-top:hover {
-      background: var(--primary);
-      transform: none; /* Remove a animação de deslocamento */
-      opacity: 0.8;
-    }
+        .photo-wrap {
+            background: var(--white);
+            padding: 7px;
+            border-radius: 50%;
+            width: 96px;
+            height: 96px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-md);
+            border: 3px solid var(--primary-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    /* ===== CONTEÚDO - Ajustado para a nova largura do menu (170px) ===== */
-    .content {
-      margin-left: 170px; 
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
+        .photo-wrap:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
 
-    .header {
-      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      padding: 20px 28px;
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-    .photo-wrap {
-      background: var(--white);
-      padding: 8px;
-      border-radius: 999px;
-      width: 96px;
-      height: 96px;
-      flex-shrink: 0;
-      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.12);
-    }
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
 
-    .photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 999px;
-      object-fit: cover;
-    }
+        .header-info .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
 
-    .header-info {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
+        .header-info .roles {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
 
-    .header-info .name {
-      font-size: 18px;
-      font-weight: 700;
-    }
+        .contacts {
+            font-size: 13px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 8px;
+        }
 
-    .header-info .roles {
-      font-size: 13px;
-      opacity: 0.9;
-    }
+        .contacts a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .contacts a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-light);
+            transition: width 0.3s ease-out;
+        }
 
-    .contacts {
-      font-size: 13px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+        .contacts a:hover {
+            color: var(--primary-light);
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
 
-    .contacts a {
-      color: #fff;
-      text-decoration: underline;
-    }
+        .contacts a:hover::after {
+            width: 100%;
+        }
 
-    main {
-      padding: 28px;
-      flex: 1;
-    }
 
-    h1, h2 {
-      color: var(--primary);
-      transition: all 0.3s ease;
-    }
+        /* CONTEÚDO PRINCIPAL */
+        main {
+            padding: 35px 30px;
+            flex: 1;
+        }
 
-    h1 {
-      font-size: 24px;
-      margin: 12px 0 24px;
-      text-align: center;
-    }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            margin: 15px 0 30px;
+            text-align: center;
+            line-height: 1.3;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
 
-    h2 {
-      font-size: 20px;
-      margin-top: 22px;
-      cursor: pointer;
-    }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 21px;
+            margin-top: 35px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--mid-gray);
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-light);
+            z-index: 1;
+        }
 
-    h2:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
-      transform: translateX(4px);
-    }
+        p {
+            margin-bottom: 18px;
+            font-size: 16px;
+            text-align: justify;
+            color: var(--text-color);
+        }
+        
+        /* Cor base para o negrito (strong) */
+        strong {
+            color: var(--primary-dark);
+        }
 
-    p {
-      margin-bottom: 12px;
-      font-size: 15px;
-      text-align: justify;
-    }
+        /* Aplica a cor de ACENTO (vermelho) apenas nas Metas e nos títulos de Ação */
+        #metas strong, 
+        #plano strong:first-child,
+        p strong:first-child { 
+            /* Se houver um parágrafo começando com strong, como "Objetivo Geral:" */
+            color: var(--accent-color); 
+        }
 
-    ul {
-      margin: 10px 0 16px 22px;
-      font-size: 15px;
-    }
+        ul {
+            margin: 15px 0 25px 25px;
+            font-size: 16px;
+            color: var(--text-color);
+            list-style-type: '» ';
+            padding-left: 5px;
+        }
 
-    li { margin-bottom: 6px; }
+        li {
+            margin-bottom: 10px;
+            text-align: justify;
+            padding-left: 5px;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 14px;
-    }
+        /* TABELA */
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin: 25px 0 35px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+        }
 
-    th, td {
-      border: 1px solid #dbe3ea;
-      padding: 8px;
-      text-align: left;
-    }
+        table {
+            min-width: 650px;
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
 
-    th {
-      background: #eaf1f6;
-      color: #1e3a56;
-    }
+        th,
+        td {
+            border: 1px solid var(--mid-gray);
+            padding: 12px 10px;
+            text-align: left;
+        }
 
-    .signature {
-      margin-top: 40px;
-      font-style: italic;
-      text-align: right;
-      color: var(--muted);
-      font-size: 14px;
-    }
+        th {
+            background: var(--primary-light);
+            color: var(--white);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
 
-    .footer {
-      background: #fbfdff;
-      border-top: 1px solid rgba(39, 98, 141, 0.1);
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: var(--muted);
-    }
+        tbody tr:hover {
+            background-color: #EBF3F8;
+            transition: background-color 0.2s ease;
+        }
 
-    .footer a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-    }
+        /* Destaque das Metas/Valores Críticos na Tabela (2ª e 3ª coluna) */
+        table td:nth-child(2) {
+            color: var(--accent-color); 
+            font-weight: 700;
+        }
+        table td:nth-child(3) {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
 
-    /* ===== RESPONSIVIDADE (MOBILE) - Mantidas as melhorias anteriores ===== */
-    @media (max-width: 900px) {
-      nav {
-        position: relative;
-        width: 100%;
-        height: auto;
-        flex-direction: row; 
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 16px; 
-      }
-      
-      nav h3 {
-        width: 100%; 
-        text-align: center;
-        margin-bottom: 16px;
-      }
-      
-      nav a {
-        width: auto; 
-        margin: 4px 6px; 
-        white-space: nowrap; 
-        transform: none !important; 
-      }
 
-      nav a.to-top {
-        margin-top: 10px; /* Reduz a margem superior no mobile */
-        width: 100%; /* Ocupa a largura total para fácil clique */
-        order: 99; /* Garante que ele vá para o final da lista no flexbox */
-        text-align: center;
-      }
-      
-      nav a:hover, nav a.active {
-        transform: none; 
-      }
-      
-      .content {
-        margin-left: 0;
-      }
-      
-      .header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .header-info .name, .header-info .roles {
-        text-align: center;
-      }
-      .contacts {
-        justify-content: center;
-      }
-    }
-  </style>
+        .signature {
+            margin-top: 60px;
+            font-style: italic;
+            text-align: right;
+            color: var(--dark-gray);
+            font-size: 15px;
+            border-top: 1px dashed var(--mid-gray);
+            padding-top: 20px;
+        }
+
+        /* RODAPÉ */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        /* MEDIA QUERY PARA TELAS MAIORES (> 600px) */
+        @media (min-width: 600px) {
+            .content {
+                margin: 50px auto;
+            }
+
+            .header {
+                flex-direction: row;
+                text-align: left;
+                padding: 40px;
+            }
+
+            .header-info .name {
+                font-size: 22px;
+            }
+
+            .header-info .roles {
+                font-size: 15px;
+            }
+
+            .contacts {
+                justify-content: flex-start;
+                font-size: 14px;
+            }
+
+            main {
+                padding: 50px 40px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+            
+            .footer {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 18px 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <h3>Sumário</h3>
-    <a href="#intro">1. Introdução</a>
-    <a href="#justificativa">2. Justificativa</a>
-    <a href="#objetivos">3. Objetivos</a>
-    <a href="#metas">4. Metas</a>
-    <a href="#plano">5. Plano de Ação</a>
-    <a href="#indicadores">6. Indicadores</a>
-    <a href="#conclusao">7. Conclusão</a>
-    
-    <a href="#" class="to-top">Retornar ao Topo ↑</a>
-  </nav>
+    <div class="content">
+        <header class="header">
+            <div class="photo-wrap">
+                <img src="SG_Executivo-removebg-preview.png" alt="Foto de Silvanio Gois" class="photo">
+            </div>
+            <div class="header-info">
+                <div class="name">Silvanio Gois — Técnico em Administração e Edificações</div>
+                <div class="roles">Graduando em Processos Gerenciais</div>
+                <div class="contacts">
+                    <span>sg@silvaniogois.com.br</span> |
+                    <a href="https://www.silvaniogois.com.br" target="_blank">www.silvaniogois.com.br</a>
+                </div>
+            </div>
+        </header>
 
-  <div class="content">
-    <header class="header">
-      <div class="photo-wrap">
-        <img src="SG_Executivo-removebg-preview.png" alt="Foto de Silvanio Gois" class="photo">
-      </div>
-      <div class="header-info">
-        <div class="name">Silvanio Gois — Técnico em Administração e Edificações</div>
-        <div class="roles">Graduando em Processos Gerenciais</div>
-        <div class="contacts">
-          <span>sg@silvaniogois.com.br</span> |
-          <a href="https://www.silvaniogois.com.br" target="_blank">www.silvaniogois.com.br</a>
-        </div>
-      </div>
-    </header>
+        <main>
+            <h1>Método de Melhoria Profissional em Operações na Construção Civil</h1>
 
-    <main>
-      <h1>Método de Melhoria Profissional em Operações na Construção Civil</h1>
+            <h2 id="intro">1. Introdução</h2>
+            <p>O presente método tem como objetivo implantar ações práticas de melhoria na gestão operacional de obras, visando à redução de custos, eliminação de desperdícios e aumento da eficiência produtiva. O foco está em práticas de gestão de pessoas, equipamentos, materiais e processos aplicadas diretamente no canteiro de obras.</p>
 
-      <h2 id="intro">1. Introdução</h2>
-      <p>O presente método tem como objetivo implantar ações práticas de melhoria na gestão operacional de obras, visando à redução de custos, eliminação de desperdícios e aumento da eficiência produtiva. O foco está em práticas de gestão de pessoas, equipamentos, materiais e processos aplicadas diretamente no canteiro de obras.</p>
+            <h2 id="justificativa">2. Justificativa</h2>
+            <p>A construção civil enfrenta desafios relacionados à produtividade, custos logísticos, desperdícios de materiais e retrabalhos. A ausência de padronização e controle contínuo impacta diretamente o resultado financeiro das obras. Assim, este método justifica-se pela necessidade de adotar práticas organizacionais e operacionais que otimizem os recursos disponíveis e assegurem maior previsibilidade dos resultados.</p>
 
-      <h2 id="justificativa">2. Justificativa</h2>
-      <p>A construção civil enfrenta desafios relacionados à produtividade, custos logísticos, desperdícios de materiais e retrabalhos. A ausência de padronização e controle contínuo impacta diretamente o resultado financeiro das obras. Assim, este método justifica-se pela necessidade de adotar práticas organizacionais e operacionais que otimizem os recursos disponíveis e assegurem maior previsibilidade dos resultados.</p>
+            <h2 id="objetivos">3. Objetivos</h2>
+            <p><strong>Objetivo Geral:</strong> Reduzir custos operacionais e melhorar a produtividade das equipes de execução através da otimização de mão de obra, materiais e equipamentos.</p>
+            <p><strong>Objetivos Específicos:</strong></p>
+            <ul>
+                <li>Diminuir custos com transporte e deslocamento de equipes.</li>
+                <li>Reduzir desperdícios de materiais e tempo improdutivo.</li>
+                <li>Melhorar o uso e controle de ferramentas e equipamentos.</li>
+                <li>Padronizar rotinas e ampliar o comprometimento das equipes.</li>
+            </ul>
 
-      <h2 id="objetivos">3. Objetivos</h2>
-      <p><strong>Objetivo Geral:</strong> Reduzir custos operacionais e melhorar a produtividade das equipes de execução através da otimização de mão de obra, materiais e equipamentos.</p>
-      <p><strong>Objetivos Específicos:</strong></p>
-      <ul>
-        <li>Diminuir custos com transporte e deslocamento de equipes.</li>
-        <li>Reduzir desperdícios de materiais e tempo improdutivo.</li>
-        <li>Melhorar o uso e controle de ferramentas e equipamentos.</li>
-        <li>Padronizar rotinas e ampliar o comprometimento das equipes.</li>
-      </ul>
+            <h2 id="metas">4. Metas</h2>
+            <p>As metas a seguir visam um ganho direto na eficiência e na redução do risco financeiro do projeto:</p>
+            <ul>
+                <li>Reduzir <strong>Desvio de Custo (CV)</strong> em <strong>10%</strong> no prazo de seis meses.</li>
+                <li>Atingir o <strong>Percent Plan Complete (PPC)</strong> de <strong>80%</strong>.</li>
+                <li>Diminuir o <strong>Custo da Não-Qualidade (CNQ)</strong> em <strong>20%</strong>.</li>
+                <li>Aumentar a <strong>Produtividade de Mão de Obra</strong> em <strong>15%</strong>.</li>
+            </ul>
 
-      <h2 id="metas">4. Metas</h2>
-      <ul>
-        <li>Reduzir custos operacionais em 10% no prazo de seis meses.</li>
-        <li>Aumentar a produtividade das equipes em 15%.</li>
-        <li>Diminuir retrabalhos em 20%.</li>
-        <li>Reduzir tempo ocioso em 25% através de melhor planejamento e uso de recursos.</li>
-      </ul>
+            <h2 id="plano">5. Plano de Ação</h2>
+            <ul>
+                <li><strong>Gestão de Mão de Obra e Produtividade (Lean):</strong> Contratar trabalhadores locais, implantar horários alternados de almoço e realizar treinamentos focados em <strong>Kaizen</strong> para eliminação de desperdícios (<strong>MUDAS</strong>).</li>
+                <li><strong>Gestão de Ferramentas e Equipamentos:</strong> Realizar inspeções semanais, substituir itens ociosos e implantar um <strong>Sistema Digital de Check-out/Check-in</strong> (QR Code) para rastreio e redução do tempo de procura.</li>
+                <li><strong>Gestão de Materiais e Logística (Custos):</strong> Planejar entregas com base na demanda de produção, organizar o almoxarifado (5S), definir <strong>Ponto de Pedido (ROP)</strong> para materiais críticos e negociar prazos garantidos com fornecedores.</li>
+                <li><strong>Planejamento e Organização (Prazos):</strong> Implantar o sistema <strong>Last Planner System (LPS) simplificado</strong> com reuniões semanais (WWP), criar cronogramas visuais e analisar a fundo os motivos de não cumprimento do planejamento.</li>
+                <li><strong>Sustentabilidade e Desperdício:</strong> Reduzir consumo de água e energia, segregar resíduos e reutilizar materiais quando possível, monitorando o <strong>Índice de Desperdício (ID)</strong> da obra.</li>
+            </ul>
 
-      <h2 id="plano">5. Plano de Ação</h2>
-      <ul>
-        <li><strong>Gestão de Mão de Obra:</strong> Contratar trabalhadores locais, implantar horários alternados de almoço, realizar treinamentos de produtividade e segurança, e criar um programa de incentivo ao desempenho.</li>
-        <li><strong>Gestão de Ferramentas e Equipamentos:</strong> Realizar inspeções semanais, substituir itens danificados ou ociosos, criar controle de uso e compartilhar equipamentos entre frentes próximas.</li>
-        <li><strong>Gestão de Materiais:</strong> Planejar entregas conforme o cronograma, organizar o almoxarifado (5S), reaproveitar materiais e negociar com fornecedores locais.</li>
-        <li><strong>Planejamento e Organização:</strong> Implantar reuniões diárias curtas (Toolbox Meeting), criar cronogramas visuais, monitorar indicadores e aplicar a melhoria contínua (Kaizen).</li>
-        <li><strong>Sustentabilidade:</strong> Reduzir consumo de água e energia, segregar resíduos e reutilizar materiais quando possível.</li>
-      </ul>
+            <h2 id="indicadores">6. Indicadores de Desempenho (KPIs)</h2>
+            <p>O monitoramento contínuo dos seguintes KPIs garante o acompanhamento da economia e do prazo:</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indicador</th>
+                            <th>Meta</th>
+                            <th>Foco da Avaliação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Desvio de Custo (CV)</td>
+                            <td><strong>-10%</strong></td>
+                            <td>Relatórios financeiros (Custo Real vs. Planejado)</td>
+                        </tr>
+                        <tr>
+                            <td>Percent Plan Complete (PPC)</td>
+                            <td><strong>+80%</strong></td>
+                            <td>Reuniões semanais de planejamento (Confiabilidade do Cronograma)</td>
+                        </tr>
+                        <tr>
+                            <td>Custo da Não-Qualidade (CNQ)</td>
+                            <td><strong>-20%</strong></td>
+                            <td>Registros de retrabalho e inspeção de qualidade (Impacto Financeiro)</td>
+                        </tr>
+                        <tr>
+                            <td>Produtividade de Mão de Obra</td>
+                            <td><strong>+15%</strong></td>
+                            <td>Medição de horas gastas por unidade de serviço (Eficiência da Equipe)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-      <h2 id="indicadores">6. Indicadores de Desempenho (KPIs)</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Indicador</th>
-            <th>Meta</th>
-            <th>Método de Avaliação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Redução de custos operacionais</td>
-            <td>-10% em 6 meses</td>
-            <td>Relatórios financeiros mensais</td>
-          </tr>
-          <tr>
-            <td>Aumento da produtividade da equipe</td>
-            <td>+15%</td>
-            <td>Medição de produção diária</td>
-          </tr>
-          <tr>
-            <td>Redução de retrabalhos</td>
-            <td>-20%</td>
-            <td>Registros de inspeção e qualidade</td>
-          </tr>
-          <tr>
-            <td>Diminuição de tempo ocioso</td>
-            <td>-25%</td>
-            <td>Controle de horas produtivas</td>
-          </tr>
-        </tbody>
-      </table>
+            <h2 id="conclusao">7. Conclusão</h2>
+            <p>A aplicação deste método proporcionará ganhos reais na eficiência operacional, redução de desperdícios e fortalecimento da cultura de produtividade. As medidas propostas têm baixo custo de implantação e alto potencial de retorno, impactando positivamente a rentabilidade, a imagem da empresa e a satisfação das equipes envolvidas.</p>
+            <p>Este método, baseado em princípios de <strong>Lean Construction</strong> e <strong>gestão de valor agregado</strong>, é adaptável a diferentes tipos de obras e pode ser expandido conforme o crescimento da empresa, servindo como base para um modelo de gestão de operações sustentável e de alto desempenho.</p>
 
-      <h2 id="conclusao">7. Conclusão</h2>
-      <p>A aplicação deste método proporcionará ganhos reais na eficiência operacional, redução de desperdícios e fortalecimento da cultura de produtividade. As medidas propostas têm baixo custo de implantação e alto potencial de retorno, impactando positivamente a rentabilidade, a imagem da empresa e a satisfação das equipes envolvidas.</p>
-      <p>Este método é adaptável a diferentes tipos de obras e pode ser expandido conforme o crescimento da empresa, servindo como base para um modelo de gestão de operações sustentável e de alto desempenho.</p>
+            <div class="signature">
+                Método desenvolvido por <strong>Silvanio Gois</strong>
+            </div>
+        </main>
 
-      <div class="signature">
-        Método desenvolvido por <strong>Silvanio Gois</strong>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div>© 2025 Silvanio Gois — Todos os direitos reservados</div>
-      <div><a href="https://www.silvaniogois.com.br" target="_blank">Retornar ao site</a></div>
-    </footer>
-  </div>
-
-  <script>
-    // Destaque automático no menu conforme rolagem
-    const sections = document.querySelectorAll("main h2[id]");
-    const navLinks = document.querySelectorAll("nav a");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((section) => {
-        // Ajustado o offset para telas menores
-        const offset = window.innerWidth > 900 ? 140 : 100; 
-        const sectionTop = section.offsetTop - offset;
-        if (scrollY >= sectionTop) current = section.getAttribute("id");
-      });
-
-      navLinks.forEach((link) => {
-        // Exclui o link "to-top" da lógica de destaque de rolagem
-        if (link.classList.contains('to-top')) return; 
-
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current)
-          link.classList.add("active");
-      });
-    });
-  </script>
+        <footer class="footer">
+            <div>© 2025 Silvanio Gois — Todos os direitos reservados</div>
+            <div><a href="https://www.silvaniogois.com.br" target="_blank">Retornar ao site</a></div>
+        </footer>
+    </div>
 </body>
 </html>
