@@ -4,33 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Método de Melhoria Profissional em Operações na Construção Civil — Silvanio Gois</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Cores Primárias */
-            --primary: #2C7DA0; /* Azul um pouco mais vibrante */
-            --primary-dark: #1E6091; /* Azul escuro complementar */
-            --primary-light: #5AA9E6; /* Azul claro para detalhes */
+            /* Cores Primárias (Mantidas, mas com pequenos ajustes para vivacidade) */
+            --primary: #2C7DA0; /* Azul Principal */
+            --primary-dark: #1F5F8B; /* Azul Escuro */
+            --primary-light: #5AA9E6; /* Azul Claro/Destaque */
             
-            /* Nova Cor de Destaque/Alerta (Vermelho) */
-            --accent-color: #E74C3C; 
+            /* Nova Cor de Ênfase (Verde, para indicar Sucesso/Melhoria, mais corporativo) */
+            --accent-color: #27AE60; /* Verde mais corporativo */
+            --accent-light: #D4EDDA; /* Verde claro para fundo de destaque */
             
             /* Cores Neutras */
             --white: #ffffff;
-            --light-gray: #F5F7FA; /* Fundo mais suave */
-            --mid-gray: #E0E7EB; /* Bordas e divisores */
-            --dark-gray: #4B5563; /* Texto secundário */
-            --text-color: #2D3748; /* Cor principal do texto */
+            --light-gray: #F8F9FA; /* Fundo mais sutil */
+            --mid-gray: #E9ECEF; /* Bordas e divisores */
+            --dark-gray: #6C757D; /* Texto secundário */
+            --text-color: #343A40; /* Cor principal do texto */
 
-            /* Sombras */
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+            /* Sombras (Mais suaves e modernas) */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.18);
 
             /* Bordas */
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 18px;
+            
+            /* Tipografia */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Roboto', sans-serif;
         }
 
         /* RESET BÁSICO */
@@ -42,72 +48,77 @@
 
         /* ESTILOS GERAIS */
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: var(--font-body);
             color: var(--text-color);
             background: var(--light-gray);
-            line-height: 1.7;
+            line-height: 1.65; /* Aumentado para melhor legibilidade */
             scroll-behavior: smooth;
             min-height: 100vh;
+            padding: 30px 15px; /* Adicionado padding para telas muito pequenas */
         }
 
         /* CONTAINER PRINCIPAL */
         .content {
             width: 100%;
-            max-width: 900px;
-            margin: 30px auto;
+            max-width: 950px; /* Levemente mais largo */
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             background: var(--white);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
             overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .content:hover {
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
         }
 
         /* CABEÇALHO */
         .header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(145deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: var(--white);
-            padding: 30px 25px;
+            padding: 40px 30px;
             display: flex;
-            gap: 25px;
+            gap: 20px;
             align-items: center;
             flex-direction: column;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom-left-radius: var(--radius-md);
-            border-bottom-right-radius: var(--radius-md);
         }
 
-        /* Efeito de fundo no cabeçalho */
+        /* Efeito de fundo no cabeçalho: Mantido e aprimorado */
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 70%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><defs><pattern id="pattern-circles" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect x="0" y="0" width="100" height="100" fill="url(%23pattern-circles)"/></svg>');
             opacity: 0.3;
-            transform: rotate(30deg);
             pointer-events: none;
         }
 
         .photo-wrap {
             background: var(--white);
-            padding: 7px;
+            padding: 5px;
             border-radius: 50%;
-            width: 96px;
-            height: 96px;
+            width: 100px;
+            height: 100px;
             flex-shrink: 0;
             box-shadow: var(--shadow-md);
-            border: 3px solid var(--primary-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 4px solid var(--primary-light);
+            z-index: 2; /* Para ficar acima do efeito de fundo */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .photo-wrap:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: var(--shadow-lg);
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border-color: var(--accent-color);
         }
 
         .photo {
@@ -120,98 +131,170 @@
         .header-info {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
+            z-index: 2;
         }
 
         .header-info .name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
+            font-family: var(--font-heading);
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            letter-spacing: 0.8px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
         }
 
         .header-info .roles {
-            font-size: 14px;
+            font-size: 15px;
             opacity: 0.9;
             font-weight: 400;
         }
 
         .contacts {
-            font-size: 13px;
+            font-size: 14px;
             display: flex;
-            gap: 12px;
+            gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
-        .contacts a {
+        .contacts a, .contacts span {
             color: var(--white);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-        }
-        
-        .contacts a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-light);
-            transition: width 0.3s ease-out;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
         }
 
         .contacts a:hover {
             color: var(--primary-light);
-            text-shadow: 0 0 5px rgba(255,255,255,0.5);
         }
-
-        .contacts a:hover::after {
-            width: 100%;
-        }
-
-
+        
         /* CONTEÚDO PRINCIPAL */
         main {
-            padding: 35px 30px;
+            padding: 40px 30px;
             flex: 1;
         }
-
+        
+        /* Título Principal H1 */
         h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 26px;
-            margin: 15px 0 30px;
+            font-family: var(--font-heading);
+            font-size: 28px;
+            margin: 10px 0 40px;
             text-align: center;
-            line-height: 1.3;
+            line-height: 1.4;
             color: var(--primary-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 21px;
-            margin-top: 35px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--mid-gray);
-            color: var(--primary);
-            font-weight: 600;
+            text-transform: none; /* Deixando a capitalização padrão para um ar mais editorial */
+            letter-spacing: 0.2px;
+            font-weight: 700;
             position: relative;
         }
         
-        h2::before {
+        h1::after {
             content: '';
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 60px;
-            height: 2px;
-            background-color: var(--primary-light);
-            z-index: 1;
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-light);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* ESTILOS PARA O RESUMO EXECUTIVO */
+        .executive-summary {
+            background-color: var(--accent-light); /* Fundo verde claro */
+            border-radius: var(--radius-md);
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            border-left: 6px solid var(--accent-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .intro-text {
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--text-color);
+            margin: 0;
+            text-align: left;
+        }
+        .intro-text strong {
+            color: var(--accent-color); /* Destaca as palavras-chave */
+        }
+        
+        /* ESTILOS PARA O ÍNDICE (TOC - Table of Contents) */
+        .toc {
+            border: 1px solid var(--mid-gray);
+            border-radius: var(--radius-md);
+            padding: 15px 20px;
+            margin-bottom: 40px;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px; /* Espaço entre os links */
+        }
+
+        .toc li {
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .toc li::before {
+            content: none; /* Remove o ícone de check na lista do TOC */
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s ease, border-bottom 0.2s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .toc a:hover {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-light);
+        }
+
+        /* Título de Seção H2 */
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            border-left: 5px solid var(--primary-light); /* Novo destaque lateral */
+            padding-left: 15px;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        h2::before {
+            content: none; /* Remove o pseudo-elemento anterior */
         }
 
         p {
@@ -221,44 +304,85 @@
             color: var(--text-color);
         }
         
-        /* Cor base para o negrito (strong) */
+        /* Destaque em negrito */
         strong {
+            font-weight: 600;
             color: var(--primary-dark);
         }
-
-        /* Aplica a cor de ACENTO (vermelho) apenas nas Metas e nos títulos de Ação */
-        #metas strong, 
-        #plano strong:first-child,
-        p strong:first-child { 
-            /* Se houver um parágrafo começando com strong, como "Objetivo Geral:" */
+        
+        /* Ênfase com a cor ACCENT (Verde) */
+        p strong:first-child,
+        #metas ul strong {
             color: var(--accent-color); 
+            font-weight: 700;
         }
 
         ul {
-            margin: 15px 0 25px 25px;
-            font-size: 16px;
-            color: var(--text-color);
-            list-style-type: '» ';
-            padding-left: 5px;
+            margin: 15px 0 25px 0;
+            padding-left: 20px; /* Ajuste para o list-style */
+            list-style: none; /* Remove o estilo padrão */
         }
-
+        
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-align: justify;
             padding-left: 5px;
+            position: relative;
+            line-height: 1.5;
         }
-
+        
+        /* Novo estilo para o Bullet Point */
+        li::before {
+            content: '\f058'; /* Icone de check (Font Awesome) */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-light);
+            margin-right: 10px;
+            position: absolute;
+            left: -20px;
+            top: 0;
+        }
+        
+        /* Lista de Ação com Ícones e Destaque */
+        #plano li::before {
+            content: '\f0eb'; /* Icone de Lâmpada/Ideia para as ações (Font Awesome) */
+            color: var(--accent-color);
+        }
+        
+        #plano strong:first-child {
+            display: block;
+            font-size: 17px;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+        
+        #plano li {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--accent-color);
+            padding: 12px 15px 12px 35px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        #plano li:hover {
+            background-color: var(--mid-gray);
+            border-left-width: 6px;
+        }
+        
         /* TABELA */
         .table-wrap {
             width: 100%;
             overflow-x: auto;
             margin: 25px 0 35px;
             border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md); /* Sombra mais destacada para a tabela */
+            border: 1px solid var(--mid-gray); /* Borda sutil */
         }
 
         table {
-            min-width: 650px;
+            min-width: 600px; /* Reduzido levemente */
             width: 100%;
             border-collapse: collapse;
             font-size: 15px;
@@ -267,16 +391,18 @@
         th,
         td {
             border: 1px solid var(--mid-gray);
-            padding: 12px 10px;
+            padding: 15px 12px; /* Aumentado o padding vertical */
             text-align: left;
         }
 
         th {
-            background: var(--primary-light);
+            background: var(--primary);
             color: var(--white);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            font-family: var(--font-heading);
+            border-color: var(--primary-dark);
         }
         
         tbody tr:nth-child(even) {
@@ -284,20 +410,22 @@
         }
 
         tbody tr:hover {
-            background-color: #EBF3F8;
+            background-color: #E6F0F6; /* Cor de hover do azul */
             transition: background-color 0.2s ease;
         }
 
-        /* Destaque das Metas/Valores Críticos na Tabela (2ª e 3ª coluna) */
+        /* Destaque das Metas/Valores Críticos na Tabela (2ª coluna) */
         table td:nth-child(2) {
-            color: var(--accent-color); 
+            color: var(--accent-color); /* Verde para Metas */
             font-weight: 700;
+            font-family: var(--font-heading);
         }
+        
+        /* Destaque sutil para Foco da Avaliação (3ª coluna) */
         table td:nth-child(3) {
-            font-weight: 600;
-            color: var(--primary-dark);
+            color: var(--dark-gray);
+            font-style: italic;
         }
-
 
         .signature {
             margin-top: 60px;
@@ -305,28 +433,29 @@
             text-align: right;
             color: var(--dark-gray);
             font-size: 15px;
-            border-top: 1px dashed var(--mid-gray);
+            border-top: 2px dashed var(--mid-gray);
             padding-top: 20px;
+            font-weight: 500;
         }
 
         /* RODAPÉ */
         .footer {
             background: var(--primary-dark);
-            color: var(--white);
+            color: var(--mid-gray);
             padding: 20px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             gap: 10px;
-            font-size: 14px;
+            font-size: 13px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer a {
             color: var(--primary-light);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
 
@@ -336,37 +465,40 @@
 
         /* MEDIA QUERY PARA TELAS MAIORES (> 600px) */
         @media (min-width: 600px) {
-            .content {
-                margin: 50px auto;
+            body {
+                padding: 50px 20px;
             }
-
             .header {
                 flex-direction: row;
                 text-align: left;
-                padding: 40px;
+                padding: 50px;
             }
 
+            .header-info {
+                gap: 5px;
+            }
+            
             .header-info .name {
-                font-size: 22px;
+                font-size: 28px;
             }
 
             .header-info .roles {
-                font-size: 15px;
+                font-size: 16px;
             }
 
             .contacts {
                 justify-content: flex-start;
-                font-size: 14px;
+                font-size: 15px;
             }
-
+            
             main {
-                padding: 50px 40px;
+                padding: 60px 50px;
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
-
+            
             h2 {
                 font-size: 24px;
             }
@@ -374,7 +506,20 @@
             .footer {
                 flex-direction: row;
                 justify-content: space-between;
-                padding: 18px 40px;
+                padding: 18px 50px;
+                font-size: 14px;
+            }
+            
+            /* Ajuste para telas grandes no TOC */
+            .toc ul {
+                flex-direction: row;
+            }
+        }
+        /* Ajuste para telas pequenas */
+        @media (max-width: 480px) {
+            .toc ul {
+                flex-direction: column;
+                gap: 8px;
             }
         }
     </style>
@@ -386,23 +531,42 @@
                 <img src="SG_Executivo-removebg-preview.png" alt="Foto de Silvanio Gois" class="photo">
             </div>
             <div class="header-info">
-                <div class="name">Silvanio Gois — Técnico em Administração e Edificações</div>
-                <div class="roles">Graduando em Processos Gerenciais</div>
+                <div class="name">Silvanio Gois</div>
+                <div class="roles">Técnico em Administração e Edificações | Graduando em Processos Gerenciais</div>
                 <div class="contacts">
-                    <span>sg@silvaniogois.com.br</span> |
-                    <a href="https://www.silvaniogois.com.br" target="_blank">www.silvaniogois.com.br</a>
+                    <span title="E-mail"><i class="fas fa-envelope"></i> sg@silvaniogois.com.br</span>
+                    <a href="https://www.silvaniogois.com.br" target="_blank" title="Site Oficial"><i class="fas fa-globe"></i> www.silvaniogois.com.br</a>
                 </div>
             </div>
         </header>
 
         <main>
             <h1>Método de Melhoria Profissional em Operações na Construção Civil</h1>
+            
+            <section class="executive-summary">
+                <p class="intro-text">
+                    Este método apresenta um conjunto de <strong>práticas Lean</strong> focadas na otimização de recursos e redução de custos operacionais em obras. O objetivo é alcançar um <strong>ganho de 15% em Produtividade de Mão de Obra</strong> e uma <strong>redução de 10% no Desvio de Custo (CV)</strong> em seis meses, através da gestão eficiente de equipes, logística (ROP, 5S) e adoção do <strong>Last Planner System (LPS)</strong>.
+                </p>
+            </section>
+            
+            <nav class="toc">
+                <div class="toc-title"><i class="fas fa-list-ul"></i> Índice de Conteúdo:</div>
+                <ul>
+                    <li><a href="#intro">1. Introdução</a></li>
+                    <li><a href="#justificativa">2. Justificativa</a></li>
+                    <li><a href="#objetivos">3. Objetivos</a></li>
+                    <li><a href="#metas">4. Metas</a></li>
+                    <li><a href="#plano">5. Plano de Ação</a></li>
+                    <li><a href="#indicadores">6. Indicadores</a></li>
+                    <li><a href="#conclusao">7. Conclusão</a></li>
+                </ul>
+            </nav>
 
             <h2 id="intro">1. Introdução</h2>
-            <p>O presente método tem como objetivo implantar ações práticas de melhoria na gestão operacional de obras, visando à redução de custos, eliminação de desperdícios e aumento da eficiência produtiva. O foco está em práticas de gestão de pessoas, equipamentos, materiais e processos aplicadas diretamente no canteiro de obras.</p>
+            <p>O presente método tem como objetivo implantar ações práticas de melhoria na gestão operacional de obras, visando à redução de custos, eliminação de desperdícios e aumento da eficiência produtiva. O foco está em práticas de <strong>gestão de pessoas, equipamentos, materiais e processos</strong> aplicadas diretamente no canteiro de obras.</p>
 
             <h2 id="justificativa">2. Justificativa</h2>
-            <p>A construção civil enfrenta desafios relacionados à produtividade, custos logísticos, desperdícios de materiais e retrabalhos. A ausência de padronização e controle contínuo impacta diretamente o resultado financeiro das obras. Assim, este método justifica-se pela necessidade de adotar práticas organizacionais e operacionais que otimizem os recursos disponíveis e assegurem maior previsibilidade dos resultados.</p>
+            <p>A construção civil enfrenta desafios relacionados à produtividade, custos logísticos, desperdícios de materiais e retrabalhos. A ausência de padronização e controle contínuo impacta diretamente o resultado financeiro das obras. Assim, este método justifica-se pela necessidade de adotar <strong>práticas organizacionais e operacionais</strong> que otimizem os recursos disponíveis e assegurem maior previsibilidade dos resultados.</p>
 
             <h2 id="objetivos">3. Objetivos</h2>
             <p><strong>Objetivo Geral:</strong> Reduzir custos operacionais e melhorar a produtividade das equipes de execução através da otimização de mão de obra, materiais e equipamentos.</p>
@@ -426,9 +590,9 @@
             <h2 id="plano">5. Plano de Ação</h2>
             <ul>
                 <li><strong>Gestão de Mão de Obra e Produtividade (Lean):</strong> Contratar trabalhadores locais, implantar horários alternados de almoço e realizar treinamentos focados em <strong>Kaizen</strong> para eliminação de desperdícios (<strong>MUDAS</strong>).</li>
-                <li><strong>Gestão de Ferramentas e Equipamentos:</strong> Realizar inspeções semanais, substituir itens ociosos e implantar um <strong>Sistema Digital de Check-out/Check-in</strong> (QR Code) para rastreio e redução do tempo de procura.</li>
+                <li><strong>Gestão de Ferramentas e Equipamentos:</strong> Realizar inspeções semanais, substituir itens ociosos e implantar um **Sistema Digital de Check-out/Check-in** (QR Code) para rastreio e redução do tempo de procura.</li>
                 <li><strong>Gestão de Materiais e Logística (Custos):</strong> Planejar entregas com base na demanda de produção, organizar o almoxarifado (5S), definir <strong>Ponto de Pedido (ROP)</strong> para materiais críticos e negociar prazos garantidos com fornecedores.</li>
-                <li><strong>Planejamento e Organização (Prazos):</strong> Implantar o sistema <strong>Last Planner System (LPS) simplificado</strong> com reuniões semanais (WWP - Weekly Work Plan), criar cronogramas visuais e analisar a fundo os motivos de não cumprimento do planejamento.</li>
+                <li><strong>Planejamento e Organização (Prazos):</strong> Implantar o sistema **Last Planner System (LPS) simplificado** com reuniões semanais (WWP - Weekly Work Plan), criar cronogramas visuais e analisar a fundo os motivos de não cumprimento do planejamento.</li>
                 <li><strong>Sustentabilidade e Desperdício:</strong> Reduzir consumo de água e energia, segregar resíduos e reutilizar materiais quando possível, monitorando o <strong>Índice de Desperdício (ID)</strong> da obra.</li>
             </ul>
 
